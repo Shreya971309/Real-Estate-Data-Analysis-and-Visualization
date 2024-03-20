@@ -8,6 +8,7 @@ This Power BI project aims to offer comprehensive insights into the dynamic hous
 
 
 ### Project Structure
+(click to expand)
 
 <details>
 <summary>   Data Collection and Cleaning </summary>
