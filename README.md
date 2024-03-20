@@ -2,7 +2,6 @@
 
 
 ## Project Overview
-(click to expand)
 
 This Power BI project aims to offer comprehensive insights into the dynamic housing market of Noida, India. With a dataset comprising approximately 2300 property listings scraped from a leading real estate website, the dashboard provides users with a powerful tool to analyze market trends, pricing dynamics, and segmentation within Noida's housing sector.
 
