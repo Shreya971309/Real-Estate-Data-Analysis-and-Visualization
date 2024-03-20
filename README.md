@@ -1,87 +1,164 @@
-# Noida Housing Market Insight
+<h1>Noida's Housing Market Insight - Power BI Dashboard </h1>
 
-## Overview
 
-This Power BI project aims to provide comprehensive insights into the housing market in Noida, India, using data scraped from a popular real estate website. The project encompasses data cleaning, analysis, and visualization to offer users a clear understanding of property prices, market segments, transaction types, and construction statuses in Noida.
+### Project Overview
+(click to expand)
 
-## Project Components
+This Power BI project aims to offer comprehensive insights into the dynamic housing market of Noida, India. With a dataset comprising approximately 2300 property listings scraped from a leading real estate website, the dashboard provides users with a powerful tool to analyze market trends, pricing dynamics, and segmentation within Noida's housing sector.
 
+
+### Project Structure
+
+<details>
+<summary>   Data Collection and Cleaning </summary>
+   
 ### Data Collection and Cleaning
 
-1. **Data Collection**:
-   - Scraped data from a real estate website using API scraping, resulting in a dataset containing information on approximately 2300 property listings.
+
+## Data Collection
+
+Data was collected using Python through API scraping, resulting in a dataset with the following fields:
+
+- Property ID
+- URL
+- Price
+- Price per Square Foot
+- Bedroom Count
+- Carpet Area
+- Developer Name
+- Location SEO Name
+- Project Name
+- Geographical Coordinates
+- Possession Status
+- Ownership Type
+- Transaction Type
+- Floor Number
+- Number of Balconies
+- Number of Bathrooms
+- Furnishing Details
+- Facing Direction
+- Additional Room Details
+- Availability Date
+- Prime Location Indicator
+- Luxury Amenities
+- Property Title
+- City Name
+
+### Cleaning Process
+
+During the cleaning process, several steps were undertaken:
+
+- **Missing Values Handling**: Rows with missing price information were removed. For other columns, missing values were addressed using a combination of techniques such as imputation based on adjacent columns, interpolation, and manual verification.
   
-2. **Data Cleaning**:
-   - Identified missing values across different columns, such as price, area, developer name, project name, and others.
-   - Rows with missing values in crucial columns like price were deleted to ensure data integrity and accuracy.
-   - For columns with a high number of missing values:
-     - Used adjacent columns or similar listings to infer missing values.
-     - Conducted Google searches to fill in missing information where possible.
-     - Manually checked and corrected discrepancies and absurd values based on external sources or domain knowledge.
-   - Standardized units of measurement for area (e.g., sqm, sqyard) to square feet for consistency.
-   - Applied conversion factors to convert area measurements to a standard unit, ensuring uniformity across the dataset.
-   - Detected discrepancies and absurd values in various columns, such as price, area, and property attributes.
-   - Conducted Google searches and cross-referenced with project details to verify the accuracy of values.
-   - Corrected or removed values that did not align with the expected ranges or were deemed unrealistic.
-   - Created calculated columns such as price per square foot and a custom segment based on price per square foot to categorize properties into premium, affordable, and mid-segments.
+- **Standardization of Units**: Area measurements were initially provided in different units (e.g., square meters, square yards). These units were standardized to square feet to maintain uniformity across the dataset.
 
-### Data Analysis and Visualization
+- **Data Verification**: Discrepancies and unrealistic values were identified through careful verification using domain knowledge, external sources, and logical assessments. Erroneous values were corrected or flagged for further investigation.
 
-1. **Loading to Power BI**:
-   - Once the data cleaning process was completed, the refined dataset was loaded into Power BI for further analysis and visualization.
+The final dataset includes the following columns:
 
-2. **Creating Visualizations**:
-   - Developed various visualizations to represent key insights:
-     - Average price and price per square foot cards
-     - Property prices by BHK configuration
-     - Distribution of properties by transaction type
-     - Distribution of properties across market segments
-     - Lists of developer names and project names with corresponding prices, shaded based on price per square foot
-     - Segmentation by transaction type
-   - Implemented filters for refining data based on price range, BHK configuration, area, location, and property segment.
+- Area
+- Balconies
+- Bathroom
+- BHK (Bedroom, Hall, Kitchen)
+- Developer Name
+- Floor No.
+- Furnished Status
+- Latitude & Longitude
+- Location
+- Possession Status
+- Price & Price per sq feet
+- Project Name
+- Property Type
+- Segment (Derived)
+- Transaction Type
 
-### Interactive Map Visualization
 
-1. **Creating Map Page**:
-   - Created a second page with a bubble map visualization of different localities in Noida, marked using latitude and longitude coordinates.
+
+
+</details>
+
+
+
+<details>
+<summary>   Data Transformation and Visualisation </summary>
+   
+## Data Loading and Transformation
+
+#### Transformation Steps 
+
+In Power BI, various transformations were applied to the dataset, including:
+
+- **Segment Creation**: Utilizing DAX expressions, a custom segment was derived based on the price per square foot.
+- The segmentation categorizes properties into three groups based on the criteria adopted from the real estate website 99acres:
+
+-Premium: Properties with a price per square foot of 6000 or higher.
+-Affordable: Properties with a price per square foot of 5000 or lower.
+-Mid-Segment: Properties with a price per square foot between 5000 and 6000.
+
+### Dashboard Components
+
+#### Overview Page
+
+The overview page features an assortment of interactive elements, including:
+
+- **Average Price Card**: Providing a snapshot of the mean property price in Crores.
+- **Average Price Per Sq Feet Card**: Displaying the average price per square foot.
+- **Property Prices by BHK**: A horizontal bar chart segmented by BHK configuration, offering insights into the distribution of prices across different property types.
+- **Transaction Type Pie Chart**: Illustrating the proportion of resale vs. new properties. 
+- **Segment Pie Chart**: Depicting the distribution of properties across market segments (e.g., 'Premium', 'Affordable', 'Mid-Segment')
+- **Segmentation by Possession Status**: A pie chart showing the proportion of Ready to Move vs. Under Construction properties.
+- **Developer and Project Price Lists**: Presenting property prices alongside developer/project names with shaded price columns, allowing users to compare pricing across different projects and developers.
+  - The shading in the price column of the developer and project tables forms a gradient based on the corresponding price per square foot. Darker shades represent higher 
+    prices per square foot, gradually transitioning to lighter shades for lower prices per square foot. This gradient provides users with a clear visual indication of price 
+    variations across properties.
+- **Parameters: Average Price/ Average Price per Sqft**: Users can toggle between these parameters, influencing the data displayed on the charts accordingly. 
+- **Filters:**
+  - BHK configuration
+  - Area range
+  - Location within Noida
+  - Market segment
+
+- **Clear Filters Button**: A user-friendly feature enabling the reset of dashboard filters to default settings, enhancing usability and navigation.
+
+<img width="647" alt="image" src="https://github.com/Shreya971309/Real-Estate-Data-Analysis-and-Visualization/assets/156785157/fc4a6cf9-b05e-444e-9487-0be47d296a2a">
+
+
+#### Map Page
+
+The map page offers a geospatial perspective of the Noida housing market, featuring:
+
+- **Bubble Map**: Displaying locality markers sized by average price or price per square foot. This allows spatial analysis and identification of hotspots.
+- **Filters and Parameters**: Similar to the overview page, enabling users to drill down into specific localities and explore detailed insights tailored to their needs and preferences.
+<img width="649" alt="image" src="https://github.com/Shreya971309/Real-Estate-Data-Analysis-and-Visualization/assets/156785157/c84d598e-af2a-4cb6-9272-c66f9734703b">
+
   
-2. **Bubble Map**:
-   - Bubble sizes correspond to average price or price per square foot, providing users with a spatial understanding of property prices across different areas.
+</details>
   
-3. **Filters and Parameters**:
-   - Implemented similar filters and parameters as on the first page to enable users to drill down into specific localities and explore detailed insights.
+<details>
+<summary>  Insights and Observations </summary>
 
 ## Insights and Observations
 
-Based on the analysis conducted through the Power BI dashboard, the following insights and observations were made:
+#### Average Price and Average Price Per Sq Foot
+- The average price of properties in Noida stands at ₹1.27 Crore, with an average price per square foot of ₹7,637.
+- Among various configurations, 5BHK properties command the highest average price at ₹4.62 Crore, followed by 3BHK properties dominating the housing sector with an average price of ₹1.50 Crore. Meanwhile, 2BHK properties average at ₹66 lakhs, and 1BHK properties at ₹28 lakhs.
 
-1. **Average Prices**: The average price of properties in Noida is ₹1.26 Crores, with an average price per square foot of ₹7,626.
-  
-2. **Property Prices by BHK**: Property prices vary significantly based on the configuration of bedrooms, halls, and kitchens, indicating a diverse market with properties ranging from affordable to luxury.
-  
-3. **Market Segmentation**: The majority of properties fall within the premium segment category, followed by the affordable and mid-segments, reflecting the diversity of offerings in the market.
-  
-4. **Transaction Types**: Resale properties dominate the market, accounting for the majority of transactions, while new properties constitute a smaller portion, suggesting a mature market with a preference for established properties.
-  
-5. **Construction Status**: A significant majority of properties are ready to move in, indicating a preference for completed properties among buyers.
-  
-6. **Developer and Project Pricing**: The availability of properties across different price points suggests a range of options for buyers, with the highest-priced project being Estate 128 by Max Estate Developers.
+#### Transaction Type
+- Resale properties dominate the market, constituting 87.64% of transactions, while new properties account for only 12.36%. This dominance of resale transactions suggests a mature market with a higher turnover of existing properties.
 
-## How to Use
+#### Possession Status
+- The majority of properties (84.79%) are ready to move, indicating a preference among buyers for properties that are completed and available for immediate occupancy. Only 15.21% of properties are under construction.
+- This preference for ready-to-move-in properties could stem from buyers' desire for immediate occupancy, assurance of quality, and the avoidance of potential construction delays commonly observed in the Noida market.
 
-1. **Opening the Dashboard**: Open the Power BI file provided using Power BI Desktop or Power BI Service.
-  
-2. **Navigating Pages**: Use the navigation buttons or tabs to switch between the overview page and the map page.
-  
-3. **Exploring Insights**: Utilize the interactive elements such as filters, slicers, and parameters to refine the data and explore specific insights tailored to your requirements.
-  
-4. **Interacting with Visualizations**: Hover over data points or click on elements within visualizations to view detailed information or apply filters dynamically.
-  
-5. **Drilling Down**: On the map page, right click on bubbles representing different localities to drill down into specific areas and view localized insights.
+#### Prices of Projects
+- Prices of projects vary widely, with some luxury projects commanding prices as high as ₹9.42 Crore. Most luxury project developers tend to focus on a single flagship project.
 
 
+#### Localities
+- Certain localities such as Sector 15, Golf Course, Sector 94, and Sector 43 command some of the highest prices per square foot, indicating premium locations with high demand.
+- On the other hand, localities like Sector 87, 88, and 89 are on the lower end.
 
-## Disclaimer
+    </details>
 
-This project is for demonstration purposes only and does not constitute financial or investment advice. All data presented is based on publicly available information and should be verified independently.
+
 
