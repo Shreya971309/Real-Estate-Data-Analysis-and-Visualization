@@ -1,13 +1,13 @@
 <h1>Noida's Housing Market Insight - Power BI Dashboard </h1>
 
 
-### Project Overview
+## Project Overview
 (click to expand)
 
 This Power BI project aims to offer comprehensive insights into the dynamic housing market of Noida, India. With a dataset comprising approximately 2300 property listings scraped from a leading real estate website, the dashboard provides users with a powerful tool to analyze market trends, pricing dynamics, and segmentation within Noida's housing sector.
 
 
-### Project Structure
+## Project Structure
 (click to expand)
 
 <details>
@@ -160,6 +160,18 @@ The map page offers a geospatial perspective of the Noida housing market, featur
 - On the other hand, localities like Sector 87, 88, and 89 are on the lower end.
 
     </details>
+
+
+    ## Files Included
+
+ **Dashboard as PBIX**: [Noida Housing Dashboard.pbix](Noida%20Housing%20Dashboard.pbix) - Power BI dashboard file.
+<br> **Dashboard as PDF**: [Noida Housing Dashboard.pdf](Noida%20Housing%20Dashboard.pdf) - PDF format of the Power BI dashboard.
+<br> **Python Script for Data Scraping**: [Real_estate_scarping.ipynb](Real_estate_scarping.ipynb) - Jupyter Notebook containing Python script used for scraping real estate 
+   data.
+<br> **Pre-cleaned Data**: [property_listings_noida.xlsx](property_listings_noida.xlsx) - Excel file containing the raw data before cleaning.
+<br> **Cleaned Data Loaded to Power BI**: [clean_prop_powerBI.xlsx](clean_prop_powerBI.xlsx) - Excel file containing cleaned data loaded into Power BI.
+
+
 
 
 
